@@ -3,6 +3,7 @@ import { EditorAppService } from '../../@editor-engine/editor-app.service';
 import EditorApp from '../../@editor-engine/classes/editorApp';
 import { EditorSceneService } from '../../@editor-engine/editor-scene.service';
 import { AssetControllerService } from '../../@editor-engine/asset-controller.service';
+import { Engine } from 'babylonjs';
 
 
 
@@ -25,21 +26,27 @@ export class PostRealityComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     // throw new Error("Method not implemented.");
     // TODO: figure out how to keep this persistent through pages
-    if (this.editorAppService.App == null) {
-      this.editorAppService.App = new EditorApp('render-canvas');
-      this.editorAppService.App.initScene();
-      // console.log('enditor-engine is null');
-      // this.assetCtrlService.AssetController.initMainAssets(
-      //   this.editorAppService.App.scene
-      // );
-      // this.editorAppService.App.doRender();
-    }
+    // if (this.editorAppService.App == null) {
+    //   this.editorAppService.App = new EditorApp('render-canvas');
+    //   this.editorAppService.App.initScene();
+    //   // console.log('enditor-engine is null');
+    //   // this.assetCtrlService.AssetController.initMainAssets(
+    //   //   this.editorAppService.App.scene
+    //   // );
+    //   this.editorAppService.App.doRender();
+    // } else {
+
+    // }
+    // TODO: see if there is a way to reassign render-canvas/context to the engine.
+    // check out HTML5 SessionState as possible solution.
+    this.editorAppService.App = new EditorApp('render-canvas');
+    this.editorAppService.App.initScene();
     this.editorSceneService.Scene = this.editorAppService.App.scene;
     this.assetCtrlService.AssetController = this.editorAppService.App.assetController;
     this.editorAppService.App.doRender();
   }
 
-  setTextData(): void {
+  setTextData(event): void {
     if (this.text === '') { return; }
     // TODO: set text of selected text component
     this.editorAppService.App.setComponentText(this.text);

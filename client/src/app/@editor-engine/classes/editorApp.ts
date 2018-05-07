@@ -23,12 +23,13 @@ export default class EditorApp {
 
   constructor(canvasID: string) {
     this.canvas = document.getElementById(canvasID) as HTMLCanvasElement;
-    this.engine = new BABYLON.Engine(this.canvas, true);
+    this.engine = new BABYLON.Engine(this.canvas, true, {doNotHandleContextLost: false});
     this.assetController = new AssetController();
   }
 
   public initScene(): BABYLON.Scene {
     this.scene = new BABYLON.Scene(this.engine);
+    // this.scene.useRightHandedSystem = true;
     this.camera = new BABYLON.ArcRotateCamera(
       'camera1',
       0,
@@ -132,6 +133,7 @@ export default class EditorApp {
     );
     dynamicTexture.hasAlpha = true;
     // dynamicTexture.vScale = -1;
+    // dynamicTexture.uScale = -1;
     const dynamicMaterial = new BABYLON.StandardMaterial('mat', this.scene);
     dynamicMaterial.diffuseTexture = dynamicTexture;
     // dynamicMaterial.diffuseColor = BABYLON.Color3.White();

@@ -150,7 +150,7 @@ export default class AssetController {
       txtTask.onSuccess = (task: TextureAssetTask) => {
         task.texture.name = txtName;
         task.texture.hasAlpha = true;
-        task.texture.uScale = -1;
+        task.texture.vScale = -1;
         // we don't use push because cannot be certain what index it will be assigned.
         tempTxts[i] = task.texture;
       };
