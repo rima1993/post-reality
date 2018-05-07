@@ -1,0 +1,23 @@
+#lock {
+    width:40%;
+    margin: 1.5em auto 4em auto;
+    display:block;
+}
+
+#fb {
+    background:#b54261 url('assets/images/facebook.svg') no-repeat 14px 6px;
+    background-size: 25px;
+    color:#fff;
+}
+
+#google {
+    border: 1px solid #95989A;
+    background: #fff  url('assets/images/google.svg') no-repeat 25px;
+    background-size: 25px;
+}
+
+#email {
+    background: #ECECEC  url('assets/images/email.svg') no-repeat 25px;
+    background-size: 25px;
+}
+

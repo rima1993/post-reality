@@ -1,0 +1,12 @@
+<p-growl [value]="msgs"></p-growl>
+<!-- Make this generic so that it can be used to upload to different media to different places -->
+<!-- <p-fileUpload id="markerUploadPrompt" name="markersToUpload" url="http://localhost:3003/api/vuforia/upload_marker" (onBeforeSend)="onBeforeSend($event)" (onUpload)="onUpload($event)" 
+        multiple="multiple" accept="image/*" maxFileSize="2000000"> -->
+<p-fileUpload id="markerUploadPrompt" name="markersToUpload" url="/api/vuforia/upload_marker" (onBeforeSend)="onBeforeSend($event)" (onUpload)="onUpload($event)" 
+        multiple="multiple" accept="image/*" maxFileSize="2000000">
+    <ng-template pTemplate="content">
+        <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles"></li>
+        </ul>
+    </ng-template>        
+</p-fileUpload>

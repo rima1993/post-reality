@@ -1,0 +1,25 @@
+<p-card title="Post Reality Editor">
+  <span id="debugLayer"></span>
+  <!-- <form id="markerUploadPrompt" method="POST" action="/upload_marker" enctype="multipart/form-data">
+    <label>Selecet image to upload.</label>
+    <br>
+    <input type="file" name="markerToUpload">
+    <br>
+    <label>Name the marker.</label>
+    <br>
+    <input type="text" name="nameForMarker">
+    <br>
+    <input type="submit" value="Submit">
+    <br>
+  </form> -->
+  <!-- <input type="text" id="nameInput"> -->
+  <canvas id="render-canvas"></canvas>
+  <!-- <input id="input" type="text" size="140" pInputText [(ngModel)]="text">  -->
+  <textarea id="input" rows="5" cols="30" pInputTextarea [(ngModel)]="text"></textarea>
+  <p-button label="Submit" (onClick)="setTextData($event)"></p-button>
+
+
+
+  <app-file-upload></app-file-upload>
+</p-card>
+<textarea pInputTextarea></textarea>

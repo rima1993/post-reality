@@ -1,0 +1,29 @@
+html,
+body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#renderCanvas {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+#markerUploadPrompt {
+  position: absolute;
+  display: none;
+  float: left;
+  top: 80%;
+  left: 2%;
+}
+
+#nameInput {
+  position: absolute;
+  display: none;
+  float: left;
+  top: 91%;
+}
