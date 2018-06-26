@@ -214,4 +214,9 @@ export default class AssetController {
     };
     this.assetManager.load();
   }
+
+  public loadUploadedImages()
+  {
+    
+  }
 }

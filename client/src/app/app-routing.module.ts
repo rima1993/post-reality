@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostRealityComponent } from './pages/post_reality_editor/post-reality.component';
-import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { LoginComponent } from './auth/login/login.component';
-import { EmailComponent } from './auth/email/email.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { ProfileComponent } from './auth/profile/profile.component';
-import { AuthGuard } from './auth/auth-guard.service';
+//import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { UserLoginComponent } from './ui/user-login/user-login.component';
+//import { ItemsListComponent } from './items/items-list/items-list.component';
+
+import { AuthGuard } from './core/auth.guard';
+import { CoreModule } from './core/core.module';
+import { FiledragdropComponent } from './dragdrop/dragdrop/dragdrop.component';
+
 
 const appRoutes: Routes = [
-  { path: 'members', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'login-email', component: EmailComponent },
+  
+  //{ path: 'items', component: ItemsListComponent, canActivate: [AuthGuard] },
+  { path: 'uploads', loadChildren: './uploads/shared/upload.module#UploadModule', canActivate: [AuthGuard] },
+
   {
     path: 'editor',
     component: PostRealityComponent,
@@ -20,11 +22,10 @@ const appRoutes: Routes = [
     data: { title: 'dummy title' }
   },
   {
-    path: '',
-    redirectTo: 'members',
-    pathMatch: 'full'
+    path:'dragdrop', component: FiledragdropComponent, canActivate:[AuthGuard]
   },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'login', component: UserLoginComponent },
+  //{ path: '**', component: PageNotFoundComponnt }
 ];
 
 @NgModule({
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
     )
   ],
   exports: [RouterModule],
+  providers: [AuthGuard],
   declarations: []
 })
 export class AppRoutingModule { }

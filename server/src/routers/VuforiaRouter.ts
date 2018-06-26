@@ -118,19 +118,43 @@ export class VuforiaRouter {
                         console.log("Error getting marker");
                         throw err;
                       } else {
-                        res.send(JSON.stringify(files));
+                        //res.send(JSON.stringify(files));
+                        var mesg = 'tees';
+                        res.send(JSON.stringify(mesg));
                       } 
                     }
                   );
+
+                  // client.retrieveTarget('07532c46d79542ab914ef79e88e3a5de', (err: any, result:any)=>{
+
+                  //   if(err){
+                  //     console.log("error in retrieving target");
+                  //   }
+                  //   else{
+
+                  //     console.log("target retrieved successfully");
+                  //   }
+
+                  // });
                 }
               }
             });
           }
         });
+        
       }
     });
     form.parse(req);
   }
+
+  
+
+// public retrieveTarget(req: Request, res: Response, next: NextFunction){
+  
+// }
+
+
+
   public retrievePresentation(req: Request, res: Response, next: NextFunction) {
     let fileName = req.params.dataName;
     let options = {
@@ -162,7 +186,7 @@ export class VuforiaRouter {
 
   public routes() {
     this.router.get("/", this.initial);
-    this.router.get("/get_markers", this.getMarkerNames);
+    //this.router.get("/get_markers", this.getMarkerNames);
     this.router.post("/upload_marker", this.uploadMarkers);
     this.router.get("/presentation/:dataName", this.retrievePresentation);
     this.router.post("/save/scene", this.savePresentation);
