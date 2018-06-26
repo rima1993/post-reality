@@ -1,0 +1,36 @@
+<div>
+  <img *ngFor="let url of localUrl" [src]="url" class="rounded mb-3" width="180">
+</div>
+
+
+
+<div *ngIf="currentUpload">
+  <progress class="progress is-success" min=1 max=100 value="{{ currentUpload?.progress }}"></progress>
+  Progress: {{currentUpload?.name}} | {{currentUpload?.progress}}% Complete
+</div>
+
+
+<div class="box">
+  
+
+  <hr>
+
+  <h3>Upload Media File Here</h3>
+
+  <label>
+    <h5>Image Upload</h5>
+    <input type="file" class="button" (change)="detectFiles($event)" multiple accept="image/*">
+    <h5>Video Upload</h5>
+    <input type="file" class="button" (change)="detectFiles($event)" multiple accept="video/*">
+    <h5>Audio Upload</h5>
+    <input type="file" class="button" (change)="detectFiles($event)" multiple accept="audio/*">
+
+  </label>
+  <button class="button is-primary"
+    [disabled]="!selectedFiles"
+    (click)="uploadImage($event)">
+    Upload File
+  </button>
+
+  <button class="button is-primary" >save</button>
+</div>

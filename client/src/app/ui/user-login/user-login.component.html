@@ -1,0 +1,52 @@
+<div *ngIf="!(auth.user | async); else alreadyLoggedIn">
+
+  
+    <hr>
+
+    <user-form></user-form>
+    <h3>Social Login</h3>
+
+    <button (click)="signInWithGoogle()" class="button btn-social btn-google">
+      <i class="fa fa-google fa-lg"></i> Connect Google
+    </button>
+
+    <button (click)="signInWithFacebook()" class="button  btn-social btn-facebook" disabled>
+      <i class="fa fa-facebook fa-lg"></i> Connect Facebook
+    </button>
+
+    <button (click)="signInWithTwitter()" class="button  btn-social btn-twitter" disabled>
+      <i class="fa fa-twitter fa-lg"></i> Connect Twitter
+    </button>
+
+    <hr>
+
+</div>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+     
+    <div class="container">
+        <img src="assets/images/album-art-drib_teaser.jpg" alt="Italian Trulli">
+      
+    <!-- button with plus sign to upload marker, this will redirect to dragdrop marker page-->
+        <p>click here to upload markers</p>
+        <a class="btn btn-info btn-lg" routerLink="/dragdrop">
+          <span class="glyphicon glyphicon-plus-sign"></span>
+        </a>
+        
+  
+    </div>
+  
+  </body>
+</html>
+
+<ng-template #alreadyLoggedIn>
+  <p class="text-success">
+    Already logged in!
+  </p>
+</ng-template>
