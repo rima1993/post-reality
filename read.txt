@@ -1,0 +1,11 @@
+User can successfully login and logout from the system.
+new User can create account.
+firebase will update user details.
+User can upload media files(audio, video, images) in their profile.
+User can upload their markers and save it to firebase.
+Marker passed to vuforia.
+
+
+not working but in implementation
+-create database for markers
+-database structure.
